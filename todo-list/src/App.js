@@ -2,7 +2,7 @@ import React , {useState} from 'react';
 import {AddForm} from './addForm.js';
 import {Task} from './task.js'
 function App() {
-  let [tasklist , setTasklist] = useState([{id:0,text:'hello'}]);
+  let [tasklist , setTasklist] = useState([]);
   let addTask = (newTask) =>{
     setTasklist((tasklist)=>[...tasklist,newTask]);
   };

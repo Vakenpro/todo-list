@@ -1,11 +1,12 @@
 import React , {useState} from 'react';
+import {createId} from './utilities.js';
 export function AddForm(props){
     let [text, setText] = useState('');
     let handleSubmit = (e) =>{
         e.preventDefault();
         if(text.length>0){
             let task = {
-                id:1,
+                id:createId(),
                 text:text
             };
             props.addTask(task);
