@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import {styles} from './styles';
+import {styles} from '../../../styles';
 export function Task(props){
     let [radiostatus, setRadiostatus] = useState(false);
     let handleClick = ()=>{

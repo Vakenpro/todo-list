@@ -9,7 +9,8 @@ let textNoStyle = {
 let liStyle = {
     border:'1px solid black',
     borderRadius: 5,
-    padding:5
+    padding:5,
+    margin:5
 };
 let radioStyle = {
     float:'left'
