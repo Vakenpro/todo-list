@@ -10,7 +10,7 @@ export function Task(props){
     };
     return(
     <li style={styles.liStyles}>
-        <input style={styles.radioStyles} className="checkBox" type="checkbox" checked={radiostatus} onClick={handleClick} />
+        <input style={styles.radioStyles} className="checkBox" type="checkbox" checked={radiostatus} onChange={handleClick} />
         <p style={radiostatus? styles.textStyles:styles.textNoStyles}>{props.task.text}</p>
         {radiostatus&&<button style={{float:'right'}} onClick={handleDeleteClick}>delete</button>}
     </li>

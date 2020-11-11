@@ -1,14 +1,14 @@
-import React , {useState} from 'react';
+import React , {useState, useCallback} from 'react';
 import {AddForm} from './components/task-components/taskForm/addForm.js';
 import {Task} from './components/task-components/task/task.js'
 function App() {
   let [tasklist , setTasklist] = useState([]);
-  let addTask = (newTask) =>{
+  let addTask = useCallback((newTask) =>{
     setTasklist((tasklist)=>[...tasklist,newTask]);
-  };
-  let deleteTask = (taskIdToRemove) =>{
+  },[]);
+  let deleteTask = useCallback((taskIdToRemove) =>{
     setTasklist((tasklist)=>tasklist.filter((tasklist)=>tasklist.id!=taskIdToRemove));
-  };
+  },[]);
   return (
     <div>
     <AddForm addTask={addTask} />
