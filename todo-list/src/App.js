@@ -6,11 +6,14 @@ function App() {
   let addTask = (newTask) =>{
     setTasklist((tasklist)=>[...tasklist,newTask]);
   };
+  let deleteTask = (taskIdToRemove) =>{
+    setTasklist((tasklist)=>tasklist.filter((tasklist)=>tasklist.id!=taskIdToRemove));
+  };
   return (
     <div>
     <AddForm addTask={addTask} />
     <ul>
-        {tasklist.map((task)=>(<Task key={task.id} task={task}/>))}
+        {tasklist.map((task)=>(<Task key={task.id} task={task} deleteTask={deleteTask}/>))}
     </ul>
    </div>
   );
