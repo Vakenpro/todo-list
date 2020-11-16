@@ -4,6 +4,7 @@ export function Task(props){
     let [radiostatus, setRadiostatus] = useState(false);
     let handleClick = ()=>{
         setRadiostatus(!radiostatus);
+        !radiostatus? props.increaseCheck(props.task.id): props.decreaseCheck(props.task.id);
     };
     let handleDeleteClick = () =>{
       props.deleteTask(props.task.id);  
