@@ -4,7 +4,7 @@ import {Task} from './components/task-components/task/task.js'
 import {styles} from './styles.js';
 function App() {
   let [tasklist , setTasklist] = useState([]);
-  let [activecheckbox, setActivecheckbox] = useState([]);
+  let [activetasks, setActivetasks] = useState([]);
   let addTask = useCallback((newTask) =>{
     setTasklist((tasklist)=>[...tasklist,newTask]);
   },[]);
@@ -12,21 +12,21 @@ function App() {
     setTasklist((tasklist)=>tasklist.filter((tasklist)=>tasklist.id!=taskIdToRemove));
   },[]);
   let increaseActives = useCallback((taskId) =>{
-    setActivecheckbox((activecheckbox)=>[...activecheckbox,taskId]);
+    setActivetasks((activetasks)=>[...activetasks,taskId]);
   },[]);
   let decreaseActives = useCallback((taskId)=>{
-    setActivecheckbox((activecheckbox)=>activecheckbox.filter((activecheckbox)=>activecheckbox!=taskId));
+    setActivetasks((activetasks)=>activetasks.filter((activetasks)=>activetasks!=taskId));
   },[]);
   let deleteManyTasks = useCallback(()=>{
-    for(let activeTask of activecheckbox){
+    for(let activeTask of activetasks){
       deleteTask(activeTask);
       decreaseActives(activeTask);
     }
-  },[activecheckbox,decreaseActives,deleteTask]);
+  },[activetasks,decreaseActives,deleteTask]);
   return (
     <div style={styles.divStyles}>
     <AddForm addTask={addTask} />
-    {activecheckbox.length>1&&<button onClick={deleteManyTasks}>delete {activecheckbox.length} tasks</button>}
+    {activetasks.length>1&&<button onClick={deleteManyTasks}>delete {activetasks.length} tasks</button>}
     <ul style={styles.ulStyles}>
         {tasklist.map((task)=>(<Task key={task.id} task={task} deleteTask={deleteTask} increaseActives={increaseActives} decreaseActives={decreaseActives}/>))}
     </ul>
