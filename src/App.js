@@ -8,20 +8,27 @@ function App() {
   let addTask = useCallback((newTask) =>{
     setTasklist((tasklist)=>[...tasklist,newTask]);
   },[]);
+
   let deleteTask = useCallback((taskIdToRemove) =>{
     setTasklist((tasklist)=>tasklist.filter((tasklist)=>tasklist.id!=taskIdToRemove));
   },[]);
+
   let increaseActives = useCallback((taskId) =>{
     setActivetasks((activetasks)=>[...activetasks,taskId]);
   },[]);
+
   let decreaseActives = useCallback((taskId)=>{
     setActivetasks((activetasks)=>activetasks.filter((activetasks)=>activetasks!=taskId));
   },[]);
+
   let deleteManyTasks = useCallback(()=>{
-    for(let activeTask of activetasks){
-      deleteTask(activeTask);
-      decreaseActives(activeTask);
-    }
+    let result = window.confirm(`Вы уверенны, что хотите удалить ${activetasks.length} задачи`);
+    if(result){
+      for(let activeTask of activetasks){
+        deleteTask(activeTask);
+        decreaseActives(activeTask);
+      }
+  }
   },[activetasks,decreaseActives,deleteTask]);
   return (
     <div style={styles.divStyles}>
