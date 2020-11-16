@@ -1,6 +1,7 @@
 import React , {useState} from 'react';
 import {createId} from '../../../utilities.js';
 import {styles} from '../../../styles.js';
+import PropTypes from 'prop-types';
 export function AddForm(props){
     let [text, setText] = useState('');
     let handleSubmit = (e) =>{
@@ -24,3 +25,7 @@ export function AddForm(props){
         </form>
     );
 }
+
+AddForm.propTypes = {
+    addTask : PropTypes.func.isRequired
+};

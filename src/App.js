@@ -28,7 +28,7 @@ function App() {
     <AddForm addTask={addTask} />
     {activecheckbox.length>1&&<button onClick={deleteManyTasks}>delete {activecheckbox.length} tasks</button>}
     <ul style={styles.ulStyles}>
-        {tasklist.map((task)=>(<Task key={task.id} task={task} deleteTask={deleteTask} increaseCheck={increaseActives} decreaseCheck={decreaseActives}/>))}
+        {tasklist.map((task)=>(<Task key={task.id} task={task} deleteTask={deleteTask} increaseActives={increaseActives} decreaseActives={decreaseActives}/>))}
     </ul>
    </div>
   );

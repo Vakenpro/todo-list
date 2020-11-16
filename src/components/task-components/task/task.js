@@ -1,13 +1,17 @@
 import React , {useState} from 'react';
 import {styles} from '../../../styles';
+import PropTypes from 'prop-types';
 export function Task(props){
     let [radiostatus, setRadiostatus] = useState(false);
     let handleClick = ()=>{
         setRadiostatus(!radiostatus);
-        !radiostatus? props.increaseCheck(props.task.id): props.decreaseCheck(props.task.id);
+        !radiostatus? props.increaseActives(props.task.id): props.decreaseActives(props.task.id);
     };
     let handleDeleteClick = () =>{
-      props.deleteTask(props.task.id);  
+      props.deleteTask(props.task.id);
+      if(radiostatus){
+        props.decreaseActives(props.task.id);
+      } 
     };
     return(
     <li style={styles.liStyles}>
@@ -17,3 +21,10 @@ export function Task(props){
     </li>
     );
 }
+
+Task.propTypes = {
+    task : PropTypes.object.isRequired,
+    increaseActives : PropTypes.func.isRequired,
+    decreaseActives : PropTypes.func.isRequired,
+    deleteTask : PropTypes.func.isRequired
+};
