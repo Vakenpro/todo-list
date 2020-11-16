@@ -18,10 +18,12 @@ let liStyle = {
     padding:5,
     margin:5,
     listStyle:'none',
-    height:45,
-    background: 'rgb(255, 237, 204)'
-
-    
+    minHeight:45,
+    background: 'rgb(255, 237, 204)',
+    /*display:'flex',
+    justifyContent:'space-between',
+    alignItems:'center',
+    flexWrap:'wrap'*/
 };
 let radioStyle = {
     margin:10,
@@ -34,8 +36,7 @@ let divStyle = {
     display:'flex',
     flexDirection:'column',
     justifyContent:'space-between',
-    alignItems:'center',
-    
+    alignItems:'center'
 };
 let ulStyle = {
     display:'flex',
