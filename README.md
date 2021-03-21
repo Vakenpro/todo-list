@@ -1,4 +1,4 @@
-# Try Vakenpro/todo-liast-app here: https://vakenpro.github.io/todo-list/
+# Try Vakenpro/todo-list-app here: https://vakenpro.github.io/todo-list/
 https://vakenpro.github.io/todo-list/
 # Getting Started with Create React App
 
